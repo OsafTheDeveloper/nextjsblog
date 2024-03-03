@@ -6,9 +6,7 @@ const Single = ({ blogData }) => {
     <div className="">
       <div className="container mx-auto px-6 py-6 ">
         <div>
-          <h1 className="font-semibold text-2xl text-center mb-6">
-            {blogData.title}
-          </h1>
+          
         </div>
         <div className="w-[30%] h-[30%] mx-auto mb-6">
           <img
@@ -16,6 +14,9 @@ const Single = ({ blogData }) => {
             src={blogData.image}
             alt={blogData.title}
           />
+          <h1 className="font-semibold text-2xl text-center mb-6">
+            {blogData.title}
+          </h1>
         </div>
         <div>
           <h2 className="font-semibold text-lg">

@@ -29,8 +29,10 @@ async function POST(req, res) {
         path: "/",
         httpOnly: true,
         secure: true,
+        maxAge: 20 * 60,
       })
     );
+
     res.status(200).send({
       message: "You Logged In ",
       success: true,

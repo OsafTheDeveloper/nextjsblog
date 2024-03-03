@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
 const admin = ({ blogData }) => {
+  // UseState for stroing id
+  const [id, setId] = useState(null);
+  // isFalse or isTure
+  const [env, setEnv] = useState(false);
   // Use useState To preview The Image
   const [previewimage, setPreviewImage] = useState(null);
   // Use useState To send The Image on clouddinary
@@ -70,6 +74,48 @@ const admin = ({ blogData }) => {
       toast.error("Blog Not Added");
     }
   };
+  async function deleteBlog(id) {
+    try {
+      const res = await axios.delete(`http://localhost:3000/api/blog/${id}`);
+      if (res.status === 200) {
+        toast.success("Blog Deleted");
+      }
+    } catch (error) {
+      console.log(error, "from deleteBlog fucntion");
+      toast.error("SomeThing Went Wrong");
+    }
+  }
+  function update(v) {
+    setBlogData({
+      title: v.title,
+      desc: v.desc,
+      category: v.category,
+      image: v.image,
+      subdesc: v.subdesc,
+    });
+    setId(v._id);
+    setEnv(true);
+  }
+  async function updateHandler(e) {
+    e.preventDefault();
+    try {
+      const res = await axios.put(`http://localhost:3000/api/blog/${id}`,blogdata);
+      if (res.status === 201) {
+        setBlogData({
+          title: "",
+          desc: "",
+          category: "",
+          image: "",
+          subdesc: "",
+        });
+        toast.success("Blog Updated");
+      }
+    } catch (error) {
+      console.log(error, "from updateHandler");
+      toast.error("SomeThing Went Wrong");
+    }
+  }
+
   console.log(blogdata);
   return (
     <>
@@ -83,7 +129,7 @@ const admin = ({ blogData }) => {
         <div className="forms flex justify-between pt-6 w-[100%] h-[100%] ">
           <div className="w-[70%] h-[90%] bg-black rounded-xl p-4">
             <form
-              onSubmit={formHandler}
+              onSubmit={env ? updateHandler : formHandler}
               className="flex items-center flex-col gap-2"
             >
               <h1 className="text-white font-bold">Blogs Details</h1>
@@ -157,7 +203,7 @@ const admin = ({ blogData }) => {
                 className="bg-green-600 py-2 px-8 rounded-3xl font-semibold"
                 type="submit"
               >
-                Add Blog
+                {env ? <>UpdateBlog</> : <>Addblog</>}
               </button>
             </form>
           </div>
@@ -189,10 +235,29 @@ const admin = ({ blogData }) => {
           {blogData.map((value) => (
             <div key={value._id}>
               <div className="max-w-lg mx-auto">
-                <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
-                  <Link href="/blog">
-                    <img className="rounded-t-lg" src={value.image} alt="" />
-                  </Link>
+                <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 px-3">
+                  <img className="rounded-t-lg" src={value.image} alt="" />
+                  <button
+                    className="bg-red-500 py-2 px-5 rounded-3xl mt-3 font-semibold"
+                    onClick={() => {
+                      const confirm = prompt("Are You Sure Write Blog Title");
+                      if (confirm === value.title) {
+                        deleteBlog(value._id);
+                      }
+                    }}
+                    type="button"
+                  >
+                    DeleteBlog
+                  </button>
+                  <button
+                    className="bg-green-500 py-2 px-5 rounded-3xl mt-3 font-semibold"
+                    onClick={() => {
+                      update(value);
+                    }}
+                    type="button"
+                  >
+                    UpdateBlog
+                  </button>
                   <div className="p-5">
                     <h5 className="text-gray-900 font-bold text-2xl tracking-tight mb-2">
                       {value.title}

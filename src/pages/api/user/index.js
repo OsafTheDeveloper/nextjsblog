@@ -46,9 +46,6 @@ async function handler(req, res) {
       }
 
       break;
-
-    default:
-      break;
   }
 }
 export default handler;

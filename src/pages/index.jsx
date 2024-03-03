@@ -1,22 +1,21 @@
 import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { blogdata } from "@/pages/admin";
 
 const index = ({ data }) => {
+  
   return (
-    <div className=" overflow-x-hidden required:">
+    <div className=" overflow-x-hidden relative required:">
       <div className="w-[100vw] object-cover mx-auto">
         <img
-          className="w-[100%] h-[100%]"
+          className="w-[100%] h-[100%] "
           src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg"
           alt=""
         />
+        <h1>Swipe Down</h1>
         <div className="flex items-center justify-center">
-
-          <h1 className="absolute bottom-[50%] text-[2.6rem]">
-            Gain The Knowledge
-          </h1>
-
+          <h1 className="absolute bottom-[50%] text-[2.6rem]"></h1>
         </div>
       </div>
       <div className="grid grid-cols-3">

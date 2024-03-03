@@ -6,7 +6,7 @@ const Index = ({ blogData }) => {
   return (
     <div className="grid grid-cols-3">
       {blogData.map((value) => (
-        <div key={value._id} className="w-[80%]  mx-auto mt-5">
+        <div key={value._id} className="w-[80%]  mx-auto mt-24">
           <div className="bg-white shadow-md border border-gray-200 rounded-lg">
             <div className="w-[60%] h-[60%] my-0 mx-auto">
               <img className="rounded-t-lg" src={value.image} />
