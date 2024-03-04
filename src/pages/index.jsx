@@ -11,23 +11,26 @@ const Index = ({ data }) => {
           src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2d8ZW58MHx8MHx8fDA%3D"
           alt="Cover Image"
         />
+        <div className="absolute bottom-[50%] font-extrabold text-[3rem]  left-[37%]">
+          <h1 className="text-black">WelCome To Our Website</h1>
+        </div>
         <div className="absolute bottom-[10%] font-extrabold text-2xl  left-[47%] ">
           <h1 className="text-black ">Swipe Down ↓</h1>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {data.map((value) => (
-          <div key={value._id} class="card">
+          <div key={value._id} className="card">
             <div class="card__header">
               <img
                 src={value.image}
                 alt="card__image"
-                class="card__image"
+                className="card__image"
                 width="600"
               />
             </div>
-            <div class="card__body">
-              <span class="tag tag-blue">{value.category}</span>
+            <div className="card__body">
+              <span className="tag tag-blue">{value.category}</span>
               <h4>{value.title}</h4>
               <p>{value.subdesc}</p>
             </div>

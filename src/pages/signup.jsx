@@ -35,8 +35,7 @@ const signup = () => {
     }
   }
   console.log(data);
-  return (
-    <>
+  return (    <>
       <Toaster position="top-center" reverseOrder={true} />
       <div className="overflow-x-hidden">
         <div className="flex min-h-screen items-center justify-center">
@@ -106,6 +105,7 @@ const signup = () => {
         </div>
       </div>
     </>
+
   );
 };
 

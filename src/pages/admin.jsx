@@ -23,6 +23,7 @@ const admin = ({ blogData }) => {
   // Input Handler Trigger The All changes In input field
   const inputHandler = (e) => {
     const { name, value } = e.target;
+    console.log({[name]:value})
     setBlogData({ ...blogdata, [name]: value });
   };
 
@@ -39,6 +40,7 @@ const admin = ({ blogData }) => {
       data.append("file", image);
       data.append("upload_preset", "blog_images");
       data.append("cloud_name", "dzeveeijn");
+      console.log(data);
       const res = await axios.post(
         "https://api.cloudinary.com/v1_1/dzeveeijn/image/upload",
         data
@@ -53,7 +55,6 @@ const admin = ({ blogData }) => {
       toast.error("Image not uploaded uploaded");
     }
   }
-
   // FromHandler Send Data In backend
   const formHandler = async (e) => {
     e.preventDefault();
