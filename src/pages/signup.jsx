@@ -38,7 +38,7 @@ const signup = () => {
   return (
     <>
       <Toaster position="top-center" reverseOrder={true} />
-      <div className="w-[100vw] h-[100vh] overflow-x-hidden">
+      <div className="overflow-x-hidden">
         <div className="flex min-h-screen items-center justify-center">
           <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
             <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">

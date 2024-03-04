@@ -99,7 +99,10 @@ const admin = ({ blogData }) => {
   async function updateHandler(e) {
     e.preventDefault();
     try {
-      const res = await axios.put(`http://localhost:3000/api/blog/${id}`,blogdata);
+      const res = await axios.put(
+        `http://localhost:3000/api/blog/${id}`,
+        blogdata
+      );
       if (res.status === 201) {
         setBlogData({
           title: "",
@@ -121,8 +124,8 @@ const admin = ({ blogData }) => {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="w-[100vw] h-[100vh] overflow-x-hidden bg-zinc-800 ">
-        <div className="flex items-center justify-center">
-          <h1 className="font-semibold text-white text-[2rem]">
+        <div className="flex items-center justify-center mt-20">
+          <h1 className="font-semibold  text-white text-[2rem]">
             Admin Dashboard
           </h1>
         </div>
@@ -185,6 +188,7 @@ const admin = ({ blogData }) => {
                 <option>Cars</option>
                 <option>Science</option>
                 <option>Politics</option>
+                <option>Nature</option>
               </select>
               <label className="font-medium text-white" htmlFor="image">
                 Image
