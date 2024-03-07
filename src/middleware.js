@@ -23,7 +23,7 @@ export async function middleware(req) {
   }
   if (pathname==="/admin/auth") {
     if (adminToken && isAdminverified) {
-      return NextResponse.redirect(new URL("/admin/", req.url));
+      return NextResponse.redirect(new URL("/admin", req.url));
     }
   }
 }

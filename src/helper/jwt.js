@@ -20,7 +20,6 @@ async function tokenVerification(token) {
       token,
       new TextEncoder().encode(process.env.ADMIN_SECRET_KEY)
     );
-    console.log(payload);
     return payload;
   } catch (error) {
     console.log(error, "from tokenVerification");
@@ -48,16 +47,10 @@ async function adminTokenverification(admintoken) {
       admintoken,
       new TextEncoder().encode(process.env.SECRET_KEY)
     );
-    console.log(payload);
     return payload;
   } catch (error) {
     console.log(error, "from admintokenVerification");
   }
 }
 
-export {
-  tokenGenerator,
-  tokenVerification,
-  adminTokenGenerator,
-  adminTokenverification,
-};
+export { tokenGenerator, tokenVerification,adminTokenGenerator,adminTokenverification };

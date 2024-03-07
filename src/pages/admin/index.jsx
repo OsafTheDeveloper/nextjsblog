@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
 const admin = ({ blogData }) => {
@@ -79,6 +79,11 @@ const admin = ({ blogData }) => {
       toast.error("Blog Not Added");
     }
   };
+  async function getData() {
+    const res = await axios.get("/api/blog");
+    return res;
+  }
+
   async function deleteBlog(id) {
     try {
       const res = await axios.delete(`http://localhost:3000/api/blog/${id}`);
@@ -216,7 +221,7 @@ const admin = ({ blogData }) => {
                 </button>
               </form>
             </div>
-            <div className="w-1/4 h-4/5 overflow-x-hidden bg-black rounded-xl p-8 flex flex-col justify-center items-center">
+            <div className="w-1/4 h-4/5 mr-5 overflow-x-hidden bg-black rounded-xl p-8 flex flex-col justify-center items-center">
               <h1 className="text-white font-semibold">Blog Image</h1>
               <form
                 onSubmit={imageFormhandler}

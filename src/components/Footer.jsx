@@ -14,7 +14,7 @@ const Footer = () => {
             className="w-[250px] h-[40px] px-3  rounded-3xl text-black "
             type="text"
           />
-          <button className="px-10 py-3 font-semibold  bg-green-400 rounded-3xl">
+          <button className="px-10 py-3 font-semibold  bg-blue-400 rounded-3xl">
             Subscribe
           </button>
         </div>
@@ -38,7 +38,7 @@ const Footer = () => {
             </Link>
             <Link
               className="hover:text-white transition duration-150 ease-in-out"
-              href={"/blogs"}
+              href={"/blog"}
             >
               Blogs
             </Link>

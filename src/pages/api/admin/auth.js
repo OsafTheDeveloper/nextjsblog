@@ -38,5 +38,9 @@ export default async function POST(req, res) {
     });
   } catch (error) {
     console.log(error, "from AdminAuth");
+    res.status(500).send({
+      message: "Internal Server Error",
+      success: false,
+    });
   }
 }

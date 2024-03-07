@@ -8,9 +8,9 @@ const Index = ({ data }) => {
   return (
     <>
       <Header />
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 bg-[#dadada]">
         {blog.map((val) => (
-          <div key={val._id} className="max-w-lg mt-5">
+          <div key={val._id} className="max-w-lg mt-5 mx-auto">
             <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
               <img className="rounded-t-lg" src={val.image} alt="image" />
               <div className="p-5">
