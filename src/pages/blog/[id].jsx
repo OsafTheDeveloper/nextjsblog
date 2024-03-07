@@ -2,30 +2,24 @@ import axios from "axios";
 import React from "react";
 
 const Single = ({ blogData }) => {
+  const data = blogData;
   return (
-    <div className="">
-      <div className="container mx-auto px-6 py-6 ">
-        <div>
-          
-        </div>
-        <div className="w-[30%] h-[30%] mx-auto mb-6">
-          <img
-            className="w-[100%] h-[100%] rounded-xl"
-            src={blogData.image}
-            alt={blogData.title}
-          />
-          <h1 className="font-semibold text-2xl text-center mb-6">
-            {blogData.title}
-          </h1>
-        </div>
-        <div>
-          <h2 className="font-semibold text-lg">
-            Category: {blogData.category}
-          </h2>
-        </div>
-        <div>
-          <p className="text-lg">{blogData.desc}</p>
-        </div>
+    <div className="w-[100%] h-[100%] overflow-hidden">
+      <div className="mt-[13vh] font-semibold flex items-center justify-center">
+        <h1>{data.title}</h1>
+      </div>
+      <div className="w-[50%] h-[50%] mx-auto">
+        <img
+          className="w-[100%] h-[100%] rounded-xl"
+          src={data.image}
+          alt="image"
+        />
+      </div>
+      <div className="w-fit ml-3 bg-blue-700 py-2 px-8 rounded-3xl">
+        <h1 className="font-semibold ">{data.category}</h1>
+      </div>
+      <div className="px-4 pb-10 mt-2">
+        <p>{data.desc}</p>
       </div>
     </div>
   );
