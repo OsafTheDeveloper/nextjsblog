@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Router from "next/router";
 
@@ -9,8 +9,10 @@ const signup = () => {
     email: "",
     password: "",
   });
+  const [user, setUser] = useState([]);
   function inputhandler(e) {
-    const { name, value } = e.target;
+    const name = e.target.name;
+    const value = e.target.value;
     setData({ ...data, [name]: value });
   }
   async function formhandler(e) {
@@ -34,8 +36,10 @@ const signup = () => {
       toast.error("SomeThing Went Wrong");
     }
   }
+
   console.log(data);
-  return (    <>
+  return (
+    <>
       <Toaster position="top-center" reverseOrder={true} />
       <div className="overflow-x-hidden">
         <div className="flex min-h-screen items-center justify-center">
@@ -56,7 +60,6 @@ const signup = () => {
                     autoComplete="off"
                     onChange={inputhandler}
                     name="username"
-                    value={data.username}
                     className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                     placeholder=" "
                   />
@@ -69,7 +72,6 @@ const signup = () => {
                     autoComplete="off"
                     onChange={inputhandler}
                     name="email"
-                    value={data.email}
                     className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                     placeholder=" "
                   />
@@ -82,7 +84,6 @@ const signup = () => {
                     autoComplete="off"
                     onChange={inputhandler}
                     name="password"
-                    value={data.password}
                     type="password"
                     className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                     placeholder=" "
@@ -105,7 +106,6 @@ const signup = () => {
         </div>
       </div>
     </>
-
   );
 };
 

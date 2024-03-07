@@ -1,6 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
 const admin = ({ blogData }) => {
@@ -23,8 +23,12 @@ const admin = ({ blogData }) => {
   // Input Handler Trigger The All changes In input field
   const inputHandler = (e) => {
     const { name, value } = e.target;
-    console.log({[name]:value})
-    setBlogData({ ...blogdata, [name]: value });
+    setBlogData((pre) => {
+      return {
+        ...pre,
+        [name]: value,
+      };
+    });
   };
 
   //ImageInput Handler Get The Selected File And Convert into url
@@ -120,7 +124,6 @@ const admin = ({ blogData }) => {
     }
   }
 
-  console.log(blogdata);
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />

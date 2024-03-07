@@ -1,56 +1,37 @@
+import Header from "@/components/Header";
 import axios from "axios";
 import Link from "next/link";
 import React from "react";
 
 const Index = ({ data }) => {
+  const blog = data.slice(0, 6);
   return (
-    <div className="overflow-x-hidden">
-      <div className="w-[100vw] h-[100vh] object-cover mx-auto">
-        <img
-          className="w-full h-full object-cover"
-          src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsb2d8ZW58MHx8MHx8fDA%3D"
-          alt="Cover Image"
-        />
-        <div className="absolute bottom-[50%] font-extrabold text-[3rem]  left-[37%]">
-          <h1 className="text-black">WelCome To Our Website</h1>
-        </div>
-        <div className="absolute bottom-[10%] font-extrabold text-2xl  left-[47%] ">
-          <h1 className="text-black ">Swipe Down ↓</h1>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {data.map((value) => (
-          <div key={value._id} className="card">
-            <div class="card__header">
-              <img
-                src={value.image}
-                alt="card__image"
-                className="card__image"
-                width="600"
-              />
-            </div>
-            <div className="card__body">
-              <span className="tag tag-blue">{value.category}</span>
-              <h4>{value.title}</h4>
-              <p>{value.subdesc}</p>
-            </div>
-            <div className="btn">
-              <Link href={"/blog"}>
-                <button
-                  className="px-8 py-2 rounded-3xl font-semibold bg-blue-400"
-                  type="button"
+    <>
+      <Header />
+      <div className="grid grid-cols-3">
+        {blog.map((val) => (
+          <div key={val._id} className="max-w-lg mt-5">
+            <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
+              <img className="rounded-t-lg" src={val.image} alt="image" />
+              <div className="p-5">
+                <h5 className= "title-heading text-gray-900 font-bold  tracking-tight mb-2">
+                  {val.title}
+                </h5>
+                <p className="font-normal subdesc-heading text-gray-700 mb-3">{val.subdesc}</p>
+                <Link
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center"
+                  href={`/blog/${val._id}`}
                 >
-                  Read More
-                </button>
-              </Link>
+                  Read more
+                </Link>
+              </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
-
 export async function getServerSideProps() {
   try {
     const res = await axios.get("http://localhost:3000/api/blog");
@@ -61,13 +42,7 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.log(error, "from 21 line index serverside");
-    return {
-      props: {
-        data: null,
-      },
-    };
+    console.log(error, "from ServerSideProps");
   }
 }
-
 export default Index;
