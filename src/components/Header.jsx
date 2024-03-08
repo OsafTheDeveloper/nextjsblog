@@ -47,7 +47,7 @@ const Header = () => {
         </nav>
         <div className="flex items-center justify-center absolute bottom-[15%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
           <Link href={"/blog"}>
-            <button className="px-6 py-3 bg-[white] font-semibold hover:bg-[rgb(254,254,254,0)] hover:text-white transition duration-150 ease-in-out rounded-3xl">
+            <button className="px-6 py-3 bg-[white] font-semibold hover:bg-[rgb(254,254,254,0)]  hover:text-white transition duration-150 ease-in-out rounded-3xl">
               More Blogs
             </button>
           </Link>

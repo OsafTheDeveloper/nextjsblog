@@ -35,7 +35,7 @@ const login = () => {
         <div className="loginpage h-[100vh] w-[100vw] overflow-hidden">
           <div className="w-[40%] h-[50%] mt-20 mx-auto">
             <div className="flex items-center justify-center">
-              <h1 className="font-semibold">Login Page</h1>
+              <h1 className="font-semibold loginHeading">Login Page</h1>
             </div>
             <form
               onSubmit={formHandler}
@@ -66,7 +66,7 @@ const login = () => {
                 }}
               />
               <button
-                className="px-10 transition duration-150 ease-in-out hover:bg-[rgb(254,254,254,0)] py-2 rounded-3xl bg-blue-600 font-semibold"
+                className="px-10 transition duration-150 ease-in-out hover:bg-[rgb(254,254,254,0)] py-2 rounded-3xl bg-green-600 font-semibold"
                 type="submit"
               >
                 Login

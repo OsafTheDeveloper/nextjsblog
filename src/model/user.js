@@ -17,6 +17,11 @@ const userSchema = mongoose.Schema({
     required: [true, "Password is Required"],
     unique: true,
   },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 const userModel = mongoose?.models?.User || mongoose.model("User", userSchema);
 export default userModel;

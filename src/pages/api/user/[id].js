@@ -6,7 +6,7 @@ async function handler(req, res) {
     case "GET":
       try {
         const { id } = req.query;
-        const singleUser = await userModel.findById(id);
+        const singleUser = await userModel.findById(id)
         res.status(200).send({
           message: "Your Single User",
           success: true,

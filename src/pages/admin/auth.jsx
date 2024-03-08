@@ -31,7 +31,7 @@ const auth = () => {
     <>
       <Toaster position="top-center" reverseOrder={true} />
       <div className="w-[100%] h-[100%] overflow-hidden">
-        <div className="loginpage h-[100vh] w-[100vw] overflow-hidden">
+        <div className="adminpage h-[100vh] w-[100vw] overflow-hidden">
           <div className="w-[40%] h-[50%] mt-20 mx-auto">
             <div className="flex items-center justify-center">
               <h1 className="font-semibold">Admin Auth</h1>

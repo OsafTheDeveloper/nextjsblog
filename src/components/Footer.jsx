@@ -1,21 +1,25 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Footer = () => {
+
   return (
     <>
       <div className="w-full relative footer py-5 bg-[rgb(22,22,22)]">
         <div className="flex items-center gap-3 justify-center py-5 bg-blue-700">
           <label className="text-white  font-semibold" htmlFor="input">
-            Subscribe to our Newsletter
+            Give Your Feed Back
           </label>
           <input
-            placeholder="Enter Your Email"
+            placeholder="Enter Your Comment"
             className="w-[250px] h-[40px] px-3  rounded-3xl text-black "
             type="text"
+            
           />
+
           <button className="px-10 py-3 font-semibold  bg-blue-400 rounded-3xl">
-            Subscribe
+            Comment
           </button>
         </div>
         <div className="flex items-center justify-around">
