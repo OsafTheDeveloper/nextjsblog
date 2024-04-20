@@ -6,15 +6,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Gilroy";
 }
 html,
 body {
   height: 100%;
   width: 100%;
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
 }
 
 *,
@@ -65,15 +65,6 @@ img {
   margin-left: 0.5em;
 }
 
-.header {
-  width: 100vw;
-  height: 100vh;
-  background-image: url(https://images.unsplash.com/photo-1504610926078-a1611febcad3?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: 100% 100%;
-}
 .header .main-heading h1 {
   font-size: clamp(1.5625rem, 1.0938rem + 1.5625vw, 2.5rem);
   font-weight: 600;
@@ -98,29 +89,32 @@ img {
   font-size: clamp(0.9375rem, 0.7813rem + 0.5208vw, 1.25rem);
 }
 
-.loginpage {
-  background-image: url(https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: 100% 100%;
-}
-.adminpage {
-  background-image: url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: 100% 100%;
-}
-
 .loginpage .loginHeading {
-  font-size: clamp(0.9375rem, 0.4688rem + 1.5625vw, 1.875rem);
+  font-size: clamp(1rem, 0rem + 3.3333vw, 3rem);
   color: white;
 }
-.signuppage {
-  background-image: url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: 100% 100%;
+
+.loginlabel {
+  font-size: clamp(0.75rem, 0.5rem + 0.8333vw, 1.25rem);
+}
+
+.loginbtn {
+  font-size: clamp(0.625rem, 0.4063rem + 0.7292vw, 1.0625rem);
+}
+.nextLink {
+  font-size: clamp(0.625rem, 0.4063rem + 0.7292vw, 1.0625rem);
+}
+.feedBacklabel {
+  font-size: clamp(0.75rem, 0.5rem + 0.8333vw, 1.25rem);
+}
+
+.usefulHeading {
+  font-size: clamp(0.3125rem, 0rem + 1.0417vw, 0.9375rem);
+}
+.usefulLink {
+  font-size: clamp(0.4375rem, 0.1875rem + 0.8333vw, 0.9375rem);
+}
+
+.keepinTouchheading {
+  font-size: clamp(0.75rem, 0.5rem + 0.8333vw, 1.25rem);
 }

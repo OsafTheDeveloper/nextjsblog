@@ -5,6 +5,7 @@ async function handler(req, res) {
   switch (req.method) {
     case "POST":
       try {
+        
         const { title, subdesc, category, desc, image } = req.body;
         const createdBlog = await blogModel.create({
           title,
@@ -44,6 +45,7 @@ async function handler(req, res) {
       }
 
       break;
+   
 
     default:
       break;

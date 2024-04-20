@@ -1,7 +1,7 @@
 import dbConnection from "@/db/db";
 import userModel from "@/model/user";
 import bcrypt from "bcryptjs";
-import { tokenGenerator } from "@/helper/jwt";
+import { tokenGenerator, tokenVerification } from "@/helper/jwt";
 import { serialize } from "cookie";
 await dbConnection();
 async function POST(req, res) {
@@ -23,13 +23,14 @@ async function POST(req, res) {
       username: findbyemail.username,
     };
     const generatedToken = await tokenGenerator(user);
+    const expirationTime = new Date(Date.now() + 10 * 60 * 1000);
     res.setHeader(
       "Set-Cookie",
       serialize("AccessToken", generatedToken, {
         path: "/",
         httpOnly: true,
         secure: true,
-        maxAge: 20 * 60,
+        expires: expirationTime,
       })
     );
 

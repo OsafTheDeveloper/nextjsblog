@@ -6,11 +6,12 @@ async function handler(req, res) {
     case "GET":
       try {
         const { id } = req.query;
+        console.log(id)
         const singleUser = await userModel.findById(id)
         res.status(200).send({
           message: "Your Single User",
           success: true,
-          singleUser,
+          data:singleUser,
         });
       } catch (error) {
         console.log(error, "from dynamic Get API");

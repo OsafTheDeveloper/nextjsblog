@@ -1,45 +1,90 @@
+import React, { useContext } from "react";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
+import { UserContext } from "@/contexts/User";
 
 const Navbar = () => {
-  return (
-    <>
-      <nav className="flex absolute bottom-[85%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 items-center justify-between px-5 w-[80%] rounded-3xl bg-white bg-opacity-20 backdrop-blur-md backdrop-filter shadow-lg border border-gray-200">
-        <div className="logo w-[7%] h-[7%]">
+  const router = useRouter();
+  const { user } = useContext(UserContext);
+
+  const handleLogout = async () => {
+    try {
+      const res = await axios.post("/api/user/logout");
+      console.log(res);
+      router.reload();
+    } catch (error) {
+      console.log(error, "from logout function");
+    }
+  };
+
+  const userProfile = user.data ? (
+    <div className="flex flex-col items-center justify-center">
+      <div className="w-14 h-14 rounded-full">
+        <Link href={`/user/${user.data._id}`}>
           <img
+            className="w-full h-full rounded-full"
+            alt="userimage"
+            src={user.data.image}
+          />
+        </Link>
+      </div>
+      <h1>{user.data.username}</h1>
+    </div>
+  ) : null;
+
+  return (
+    <div className="navbar flex w-full items-center justify-between px-20 py-1">
+      <div className="w-20 h-20">
+        <Link href={"/"}>
+          <img
+            src="/iBlogs-logo/default.png"
             className="w-full h-full"
-            src="http://res.cloudinary.com/dzeveeijn/image/upload/v1709489248/blogImages/jfydjzt6oo61dbrkvh5m.png"
             alt="Logo"
           />
-        </div>
-        <div className="links flex items-center gap-5">
-          <Link
-            className="hover:text-white transition duration-150 ease-in-out"
-            href={"/"}
-          >
-            Home
-          </Link>
-          <Link
-            className="hover:text-white transition duration-150 ease-in-out"
-            href={"/blog"}
-          >
-            Blogs
-          </Link>
-          <Link
-            className="hover:text-white transition duration-150 ease-in-out"
-            href={"/signup"}
-          >
-            Signup
-          </Link>
-          <Link
-            className="hover:text-white transition duration-150 ease-in-out "
-            href={"/login"}
-          >
-            Login
-          </Link>
-        </div>
-      </nav>
-    </>
+        </Link>
+      </div>
+      <div className="flex items-center gap-4">
+        <Link
+          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-blue-700 duration-300"
+          href={"/"}
+        >
+          Home
+        </Link>
+        {user.data ? (
+          <>
+            <button
+              onClick={handleLogout}
+              className="bg-red-700 py-3 px-5 rounded-3xl text-white"
+            >
+              Logout
+            </button>
+            <Link
+              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-blue-700 duration-300"
+              href={"/blog"}
+            >
+              Blog
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-blue-700 duration-300"
+              href={"/login"}
+            >
+              Login
+            </Link>
+            <Link
+              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-blue-700 duration-300"
+              href={"/signup"}
+            >
+              Signup
+            </Link>
+          </>
+        )}
+      </div>
+      {userProfile}
+    </div>
   );
 };
 

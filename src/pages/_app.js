@@ -1,18 +1,18 @@
-import { useRouter } from "next/router";
-import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import User from "@/contexts/User";
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-
-  const isHomePage = router.pathname === "/";
-
   return (
-    <>
-      {isHomePage ? null : <Navbar />}
-      <Component {...pageProps} />
-      <Footer />
-    </>
+    <User>
+      <>
+        <div className="w-full h-full overflow-x-hidden">
+          <Navbar />
+          <Component {...pageProps} />
+          {/* <Footer /> */}
+        </div>
+      </>
+    </User>
   );
 }

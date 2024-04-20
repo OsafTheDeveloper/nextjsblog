@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: AndikaNewBasic-R
+font link: https://www.fontsquirrel.com/fonts/andika-basic
+font author: Sil International
+font author site: http://scripts.sil.org/
+
+
+icon designer: Icons By Alfredo
+icon designer link: /AlfredoCreates
+        
+{"bg":"transparent","icon":"#488eff","font":"#2e3034","slogan":"#424448"}
+      

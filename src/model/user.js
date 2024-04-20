@@ -17,7 +17,15 @@ const userSchema = mongoose.Schema({
     required: [true, "Password is Required"],
     unique: true,
   },
-
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
+  image: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

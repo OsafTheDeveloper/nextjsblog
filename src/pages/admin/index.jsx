@@ -194,7 +194,7 @@ const admin = ({ blogData }) => {
                   type="text"
                 >
                   <option>Select Category</option>
-                  <option>Techonolgy</option>
+                  <option>Technology</option>
                   <option>Cars</option>
                   <option>Science</option>
                   <option>Politics</option>

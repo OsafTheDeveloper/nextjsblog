@@ -8,14 +8,16 @@ const Footer = () => {
     <>
       <div className="w-full relative footer py-5 bg-[rgb(22,22,22)]">
         <div className="flex items-center gap-3 justify-center py-5 bg-blue-700">
-          <label className="text-white  font-semibold" htmlFor="input">
+          <label
+            className="text-white feedBacklabel font-semibold"
+            htmlFor="input"
+          >
             Give Your Feed Back
           </label>
           <input
             placeholder="Enter Your Comment"
             className="w-[250px] h-[40px] px-3  rounded-3xl text-black "
             type="text"
-            
           />
 
           <button className="px-10 py-3 font-semibold  bg-blue-400 rounded-3xl">
@@ -33,34 +35,36 @@ const Footer = () => {
             </Link>
           </div>
           <div className="links text-[#dadada] flex py-5 gap-3 flex-col">
-            <h1 className="text-[#fff] font-bold">UseFul Links</h1>
+            <h1 className="text-[#fff] font-bold usefulHeading">
+              UseFul Links
+            </h1>
             <Link
-              className="hover:text-white transition duration-150 ease-in-out"
+              className="hover:text-white   usefulLink  transition duration-150 ease-in-out"
               href={"/"}
             >
               Home
             </Link>
             <Link
-              className="hover:text-white transition duration-150 ease-in-out"
+              className="hover:text-white  usefulLink  transition duration-150 ease-in-out"
               href={"/blog"}
             >
               Blogs
             </Link>
             <Link
-              className="hover:text-white transition duration-150 ease-in-out"
+              className="hover:text-white  usefulLink  transition duration-150 ease-in-out"
               href={"/signup"}
             >
               Signup
             </Link>
             <Link
-              className="hover:text-white transition duration-150 ease-in-out"
+              className="hover:text-white   usefulLink transition duration-150 ease-in-out"
               href={"/login"}
             >
               Login
             </Link>
           </div>
           <div>
-            <h1 className="text-[#fff] mx-3 font-bold">Let's keep in touch!</h1>
+            <h1 className="text-[#fff] mx-3 keepinTouchheading font-bold">Let's keep in touch!</h1>
             <div className="sociallinks text-[#dadada] flex gap-3 px-5">
               <i className="ri-facebook-fill cursor-pointer hover:text-[rgb(32,123,243)] transition duration-150 ease-in-out"></i>
               <i className="ri-linkedin-fill cursor-pointer hover:text-[rgb(0,119,181)] transition duration-150 ease-in-out"></i>
